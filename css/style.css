@@ -57,10 +57,7 @@ header {
     display:flex;
     margin: 0 0 0 auto;
 }
-.game_logo {
-    margin: 0; padding: 0;
-    font-size: 20px;
-}
+
 ul {
     display: flex;
 }
@@ -98,10 +95,10 @@ textarea {
     border: 0px;
     display: flex;
     justify-content: center;
-    justify-content: space-around;
+    width: 500px;
 }
-.form-group {
-    margin-top: 20px;
+.row {
+    width: 100%;
 }
 .form-control {
     width: 100%;
