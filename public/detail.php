@@ -14,7 +14,7 @@
  </div>
  <div>
     <h3>口コミを投稿する</h3>
-    <form action="" method="POST">
+    <form action="../app/product.php" method="POST">
         <textarea name="review" id="" cols="30" rows="10"></textarea>
         <input type="submit" value="投稿する">
     </form>
