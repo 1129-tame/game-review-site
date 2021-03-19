@@ -11,6 +11,6 @@ function db_open() :PDO {  //型宣言でPDO型を指定
         PDO::ATTR_EMULATE_PREPARES => false,
         PDO::MYSQL_ATTR_MULTI_STATEMENTS => false,
     ]; //DSN データソース名
-    $dbh = new PDO('mysql:host=localhost:3308;dbname=sample_db;', $user, $password, $opt);
+    $dbh = new PDO('mysql:host=localhost:3308;dbname=kuchikomi;charset=utf8', $user, $password, $opt);
     return $dbh; //返り値を返す
 }
