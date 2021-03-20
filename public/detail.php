@@ -3,14 +3,10 @@
 require_once __DIR__ . "/../app/functions.php";
 try {
  $dbh = db_open();
- $sql = 'SELECT * FROM reviews';
+ $sql = 'SELECT review_comment, review_date FROM reviews LEFT JOIN
+ users ON reviews.review_user_id = users.user_id';
  $statement = $dbh->query($sql);
  
- while ($row = $statement->fetch()) {
-     str2html($row["review_comment"]);
-   
- } 
-
 } catch (PDOException $e) {
     echo "エラー！:" .str2html($e->getMessage()) . "<br>";
     //echo "エラー！: <br>"; 本番での書き方
@@ -26,16 +22,20 @@ try {
  </div>
  <div>
     <h3>感想・レビュー</h3>
-    <h4>はるの感想・レビュー</h4>
-        <p>とても面白いです。</p>
-    <h4>トラざえもんの感想・レビュー</h4>
-        <p>映像が綺麗、本物かと思って画面を触ってしまった。</p>
+    
  </div>
+<?PHP  while ($row = $statement->fetch()) {
+    echo "<div>";
+    echo "<p>はるの感想・レビュー:" . str2html($row["review_date"]) . "</p>";
+    echo "<p>" . str2html($row["review_comment"]) . "</p>";
+    echo "</div>";
+ } ?>
  <div>
     <h3>口コミを投稿する</h3>
     <form action="../app/product.php" method="POST">
-        <p>名前：<input type="text" name="name"></p>
-        <textarea name="review" id="" cols="30" rows="10"></textarea>
+        <label> 名前：<br><input type="text" name="name"></label><br>
+        <label for="content">感想・レビュー:</label>
+        <textarea name="review_comment" id="content" cols="30" rows="10"></textarea>
         <input type="submit" value="投稿する">
     </form>
  </div>
