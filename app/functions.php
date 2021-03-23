@@ -15,7 +15,7 @@ function db_open() :PDO {  //型宣言でPDO型を指定
     return $dbh; //返り値を返す
 }
 
-function fetch_products($dbn) {
+function fetch_products($dbh) {
 
 	// productsのDBを選択する
 	 $query = "SELECT
@@ -25,20 +25,20 @@ function fetch_products($dbn) {
 	 			FROM
 	 				products";
 
-	$result = $dbn->query($query);
+	$result = $dbh->query($query);
 
 	if( !$result ) {
 		// エラーが発生した場合
 		exit;
 	} else {
 		// カテゴリーが存在しない場合
-		if( mysqli_num_rows($result) == 0 ){
+		if($result== 0 ){
 			exit;
 		}else {
 			// エラーがない場合
 			// 連想配列にデータを格納する
 			$product_data = array();
-			while ($row = $result->fetch_assoc()) {
+			while ($row = $result->fetch()) {
 				$product_data[] = $row;
 			}
 

@@ -1,6 +1,15 @@
 <?php include __DIR__ . "/inc/header.php"; ?>
+<?php require_once __DIR__ . "/../app/functions.php";?>
+<?php require_once __DIR__ . "/../app/review.php"?>
+
 <?php
-require_once __DIR__ . "/../app/functions.php";
+// 口コミデータとそのデータに紐づくユーザー情報を取得する
+$product_id = $_GET['id'];
+echo "$product_id";
+$dbh = db_open();
+fetch_reviews($product_id, $dbh);
+ ?>
+<?php
 try {
  $dbh = db_open();
  $sql = 'SELECT review_comment, review_date FROM reviews LEFT JOIN
@@ -32,11 +41,13 @@ try {
  } ?>
  <div>
     <h3>口コミを投稿する</h3>
-    <form action="../app/product.php" method="POST">
+    <form action="detail.php?id=<?php echo $product_id?>" method="GET">
         <label> 名前：<br><input type="text" name="name"></label><br>
         <label for="content">感想・レビュー:</label>
         <textarea name="review_comment" id="content" cols="30" rows="10"></textarea>
+        <?php  ?>
         <input type="submit" value="投稿する">
+        
     </form>
  </div>
 
