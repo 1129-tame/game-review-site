@@ -1,6 +1,6 @@
 <?php include __DIR__ . "/inc/header.php"; ?>
 <?php require_once __DIR__ . "/../app/functions.php"; ?>
-    <h2>タイムライン</h2>
+    <h2>ホーム</h2>
 <?php
 $dbh = db_open();
 $products_data = fetch_products($dbh);
