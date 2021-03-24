@@ -1,50 +1,50 @@
 <?php include __DIR__ . "/inc/header.php"; ?>
 <?php require_once __DIR__ . "/../app/functions.php";?>
-<?php require_once __DIR__ . "/../app/review.php"?>
+
 
 <?php
-// 口コミデータとそのデータに紐づくユーザー情報を取得する
-$product_id = $_GET['id'];
-echo "$product_id";
+$id = $_GET['id'];
+
+ //指定したidのプロダクトを抽出/商品関係
 $dbh = db_open();
-fetch_reviews($product_id, $dbh);
- ?>
-<?php
-try {
- $dbh = db_open();
- $sql = 'SELECT review_comment, review_date FROM reviews LEFT JOIN
- users ON reviews.review_user_id = users.user_id';
- $statement = $dbh->query($sql);
- 
-} catch (PDOException $e) {
-    echo "エラー！:" .str2html($e->getMessage()) . "<br>";
-    //echo "エラー！: <br>"; 本番での書き方
-    exit;
-}
+$sql2 = 'SELECT * FROM products WHERE product_id = :product_id';
+$stmt = $dbh->prepare($sql2);
+$stmt->bindParam(":product_id",$_GET['id'],PDO::PARAM_INT);
+$stmt->execute();
+$product_id = $stmt->fetch(PDO::FETCH_ASSOC);
+var_dump($product_id);
 ?>
 
  <h2>口コミ詳細</h2>
- <h3>ゼルダの伝説ブレスオブザワイルド</h3>
+ <h3><?php echo $product_id['product_name']; ?></h3> 
  <div>
-    <p>ハード：Nintendo Switch</p>
-    <p>ジャンル：アクション・アドベンチャー</p>
+    <p>ハード：<?php echo $product_id['product_hard'];?></p>
+    <p>ジャンル：<?php echo $product_id['product_kind'];?></p>
  </div>
  <div>
     <h3>感想・レビュー</h3>
     
  </div>
-<?PHP  while ($row = $statement->fetch()) {
+
+ <?php
+    //　指定したレビューの抽出
+ $sql = 'SELECT review_comment, review_date FROM reviews WHERE review_product_id = :review_product_id';
+ $statement = $dbh->prepare($sql);
+ $statement->bindParam(":review_product_id",$_GET['id'],PDO::PARAM_INT);
+ $statement->execute();
+ while ($product_review = $statement->fetch(PDO::FETCH_ASSOC)) { 
     echo "<div>";
-    echo "<p>はるの感想・レビュー:" . str2html($row["review_date"]) . "</p>";
-    echo "<p>" . str2html($row["review_comment"]) . "</p>";
+    echo "<p>はるの感想・レビュー:" . str2html($product_review['review_date']) . "</p>";
+    echo "<p>" . str2html($product_review["review_comment"]) . "</p>";
     echo "</div>";
- } ?>
+ } //end of while   ?> 
  <div>
     <h3>口コミを投稿する</h3>
-    <form action="detail.php?id=<?php echo $product_id?>" method="GET">
+    <form action="../app/product.php" method="GET">
         <label> 名前：<br><input type="text" name="name"></label><br>
         <label for="content">感想・レビュー:</label>
         <textarea name="review_comment" id="content" cols="30" rows="10"></textarea>
+        <input type="hidden" name="product_id" value="<?php echo "$id";?>">
         <?php  ?>
         <input type="submit" value="投稿する">
         
