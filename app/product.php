@@ -1,5 +1,11 @@
 <?php
 require_once __DIR__ . "/functions.php";
+// バリデーション
+if (empty($_GET['review_comment'])) {
+    $product_id = $_GET['product_id'];
+    header( "Location: ../public/detail.php?id=$product_id&comment=null" );
+    exit;
+}
 try {
  $dbh = db_open();
  $sql = 'INSERT INTO reviews (review_id, review_comment,review_date, review_product_id, review_user_id) VALUES (NULL, :review_comment,:review_date, :review_product_id,:review_user_id)';

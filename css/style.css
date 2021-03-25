@@ -89,6 +89,9 @@ main {
 textarea {
     width: 100%;
 }
+b {
+    color: crimson;
+}
 
 /*login.php */
 .container {

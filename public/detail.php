@@ -12,7 +12,7 @@ $stmt = $dbh->prepare($sql2);
 $stmt->bindParam(":product_id",$_GET['id'],PDO::PARAM_INT);
 $stmt->execute();
 $product_id = $stmt->fetch(PDO::FETCH_ASSOC);
-var_dump($product_id);
+
 ?>
 
  <h2>口コミ詳細</h2>
@@ -43,6 +43,12 @@ var_dump($product_id);
     <form action="../app/product.php" method="GET">
         <label> 名前：<br><input type="text" name="name"></label><br>
         <label for="content">感想・レビュー:</label>
+<?php 
+   if (empty($_GET['comment'])) {
+   } elseif ($_GET['comment'] == "null") {
+      echo "<b>感想を入力してください</b>";
+   }
+?>
         <textarea name="review_comment" id="content" cols="30" rows="10"></textarea>
         <input type="hidden" name="product_id" value="<?php echo "$id";?>">
         <?php  ?>
