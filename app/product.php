@@ -5,6 +5,7 @@ try {
  $sql = 'INSERT INTO reviews (review_id, review_comment,review_date, review_product_id, review_user_id) VALUES (NULL, :review_comment,:review_date, :review_product_id,:review_user_id)';
  $statement = $dbh->prepare($sql);
 
+date_default_timezone_set('Asia/Tokyo');
 $timestamp = time() ;
 $timestamp = date("Y-m-d H:i:s", $timestamp);
 $a = (int) 1;
