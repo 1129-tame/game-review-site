@@ -16,10 +16,10 @@ var_dump($product_id);
 ?>
 
  <h2>口コミ詳細</h2>
- <h3><?php echo $product_id['product_name']; ?></h3> 
+ <h3><?php echo str2html($product_id['product_name']); ?></h3> 
  <div>
-    <p>ハード：<?php echo $product_id['product_hard'];?></p>
-    <p>ジャンル：<?php echo $product_id['product_kind'];?></p>
+    <p>ハード：<?php echo str2html($product_id['product_hard']);?></p>
+    <p>ジャンル：<?php echo str2html($product_id['product_kind']);?></p>
  </div>
  <div>
     <h3>感想・レビュー</h3>

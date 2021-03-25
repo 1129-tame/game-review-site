@@ -9,9 +9,9 @@ foreach ($products_data as $product_data ) {
 
 <div class="col-xs-12">
     
-	<h2><?php echo $product_data['product_name']; ?></h2>
-	<p><?php echo $product_data['product_description']; ?></p>
-	<a href="detail.php?id=<?php echo $product_data['product_id'] ?>">&raquo; 口コミを見る</a>
+	<h2><?php echo str2html($product_data['product_name']); ?></h2>
+	<p><?php echo str2html($product_data['product_description']); ?></p>
+	<a href="detail.php?id=<?php echo str2html($product_data['product_id']) ?>">&raquo; 口コミを見る</a>
 	<br><br>
 </div>
 
