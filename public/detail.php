@@ -20,6 +20,7 @@ $product_id = $stmt->fetch(PDO::FETCH_ASSOC);
  <div>
     <p>ハード：<?php echo str2html($product_id['product_hard']);?></p>
     <p>ジャンル：<?php echo str2html($product_id['product_kind']);?></p>
+    <p>詳細：<?php echo str2html($product_id['product_description']);?></p>
  </div>
  <div>
     <h3>感想・レビュー</h3>
