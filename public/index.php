@@ -22,13 +22,21 @@ foreach ($products_data as $product_data ) {
 	<label for="title">タイトル：</label>
 	<input type="text" id="title" name="product_name"><br>
 	<label for="hard">ハード：</label>
-	<select name="hard" id="hard">
-	<option value="product_hard">Nintendo Switch</option>
-	<option value="product_hard">PS4</option>
-	<option value="product_hard">PS5</option>
+	<select name="product_hard" id="hard">
+	<option value="Nintendo Switch">Nintendo Switch</option>
+	<option value="PS4">PS4</option>
+	<option value="PS5">PS5</option>
 	</select><br>
+	<label for="kind">ジャンル：</label>
+	<input type="text" id="kind" name="product_kind"><br>
 	<label for="description">説明：</label>
 	<textarea name="product_description" id="description" cols="30" rows="10"></textarea>
 	<input type="submit" value="新規追加">
 	</form>
+<?php 
+	if (empty($_GET['product'])) {
+	} elseif ($_GET['product'] == 'null') {
+		echo "<b>正しい情報を入力してください。</b>";
+	}
+?>
 <?php include __DIR__ . "/inc/footer.php"; ?>

@@ -11,9 +11,9 @@
     <div class="f-container">
          <div>
             <ul class='nav'>
-                <li><a href="detail.php">Switch</a></li>
-                <li><a href="detail.php">PS4</a></li>
-                <li><a href="detail.php">PS5</a></li> 
+                <li><a href="index.php">Switch</a></li>
+                <li><a href="index.php">PS4</a></li>
+                <li><a href="index.php">PS5</a></li> 
             </ul>
         </div>
         <div class="f-item">
