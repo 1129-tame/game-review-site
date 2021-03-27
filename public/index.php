@@ -1,5 +1,11 @@
 <?php include __DIR__ . "/inc/header.php"; ?>
 <?php require_once __DIR__ . "/../app/functions.php"; ?>
+<?php
+	if (empty($_GET['product'])) {
+	} elseif ($_GET['product'] == 'notnull') {
+		echo "<b>新規ゲーム情報追加成功しました。</b>";
+	}
+?>
     <h2>ホーム</h2>
 <?php
 $dbh = db_open();
@@ -8,7 +14,6 @@ foreach ($products_data as $product_data ) {
 ?>
 
 <div class="col-xs-12">
-    
 	<h2><?php echo str2html($product_data['product_name']); ?></h2>
 	<p><?php echo str2html($product_data['product_description']); ?></p>
 	<a href="detail.php?id=<?php echo str2html($product_data['product_id']) ?>">&raquo; 口コミを見る</a>
@@ -33,6 +38,7 @@ foreach ($products_data as $product_data ) {
 	<textarea name="product_description" id="description" cols="30" rows="10"></textarea>
 	<input type="submit" value="新規追加">
 	</form>
+
 <?php 
 	if (empty($_GET['product'])) {
 	} elseif ($_GET['product'] == 'null') {

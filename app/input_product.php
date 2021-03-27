@@ -2,10 +2,11 @@
 require_once __DIR__ . "/functions.php";
 //ゲーム情報をDBに追加
 //バリデーション
-if (empty($_POST['product_name'])) {
+if (empty($_POST['product_name']) || empty($_POST['product_hard']) || empty($_POST['product_description']) || empty($_POST['product_kind'])) {
     header( "Location: ../public/index.php?product=null" );
     exit;
 }
+
 try {
 $dbh = db_open();
 $sql = 'INSERT INTO products (product_id, product_name,product_hard, 	product_description	, product_kind) VALUES (NULL, :product_name,:product_hard, :product_description,:product_kind)';

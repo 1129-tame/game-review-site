@@ -1,10 +1,6 @@
 <?php include __DIR__ . "/inc/header.php"; ?>
 <?php require_once __DIR__ . "/../app/functions.php";?>
-
-
 <?php
-$id = $_GET['id'];
-
  //指定したidのプロダクトを抽出/商品関係
 $dbh = db_open();
 $sql2 = 'SELECT * FROM products WHERE product_id = :product_id';
@@ -24,7 +20,6 @@ $product_id = $stmt->fetch(PDO::FETCH_ASSOC);
  </div>
  <div>
     <h3>感想・レビュー</h3>
-    
  </div>
 
  <?php
@@ -39,9 +34,11 @@ $product_id = $stmt->fetch(PDO::FETCH_ASSOC);
     echo "<p>" . str2html($product_review["review_comment"]) . "</p>";
     echo "</div>";
  } //end of while   ?> 
+
+
  <div>
     <h3>口コミを投稿する</h3>
-    <form action="../app/product.php" method="GET">
+    <form action="../app/input_review.php" method="GET">
         <label> 名前：<br><input type="text" name="name"></label><br>
         <label for="content">感想・レビュー:</label>
 <?php 
@@ -49,6 +46,7 @@ $product_id = $stmt->fetch(PDO::FETCH_ASSOC);
    } elseif ($_GET['comment'] == "null") {
       echo "<b>感想を入力してください</b>";
    }
+   $id = $_GET['id'];
 ?>
         <textarea name="review_comment" id="content" cols="30" rows="10"></textarea>
         <input type="hidden" name="product_id" value="<?php echo "$id";?>">

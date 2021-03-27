@@ -18,12 +18,7 @@ function db_open() :PDO {  //型宣言でPDO型を指定
 function fetch_products($dbh) {
 
 	// productsのDBを選択する
-	 $query = "SELECT
-					 product_id,
-					 product_name,
-					 product_description
-	 			FROM
-	 				products";
+	 $query = "SELECT *	FROM products";
 
 	$result = $dbh->query($query);
 
