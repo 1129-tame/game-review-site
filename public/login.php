@@ -1,8 +1,10 @@
 <?php include __DIR__ . "/inc/header.php"; ?>
 <?php
 if (empty($_GET['signup'])) {
-} elseif ($_GET['signup'] = 'notnull') {
+} elseif ($_GET['signup'] == 'notnull') {
 	echo "<p>会員登録できました。ログインしてください。</p>";
+} elseif ($_GET['signup'] == 'out') {
+	echo "<p>ログアウトできました。</p>";
 }
 ?>
 
@@ -10,10 +12,10 @@ if (empty($_GET['signup'])) {
 	<div class="row">
 		 <div class="col-xs-6 col-xs-offset-3">
 		 	<h2 class="loginname">ログイン</h2>
-			<form action="" method="post">
+			<form action="../login/login_session.php" method="post">
 				<div class="form-group">
-					<label for="user_email">Email</label>
-					<input type="email" class="form-control" id="user_email" name="user_email">
+					<label for="user_name">ユーザー名</label>
+					<input type="text" class="form-control" id="user_name" name="user_name">
 				</div>
 				<div class="form-group">
 					<label for="user_password">パスワード</label>

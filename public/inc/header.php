@@ -19,7 +19,7 @@
         <div class="f-item">
             <ul class='nav'>
                 <li><a href="index.php">ホーム</a></li>
-                <li><a href="">マイページ</a></li>
+                <li><a href="mypage.php">マイページ</a></li>
                 <li><a href="guest_login.php">ゲストログイン</a></li>
                 <li><a href="login.php">ログイン</a></li>
                 <li><a href="signup.php">会員登録</a></li>
