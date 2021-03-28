@@ -1,4 +1,10 @@
 <?php include __DIR__ . "/inc/header.php"; ?>
+<?php
+if (empty($_GET['signup'])) {
+} elseif ($_GET['signup'] = 'notnull') {
+	echo "<p>会員登録できました。ログインしてください。</p>";
+}
+?>
 
 <div class="container">
 	<div class="row">
