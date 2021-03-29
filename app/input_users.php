@@ -23,7 +23,6 @@ try {
     $statement->bindParam(":user_name",$_POST['user_name'],PDO::PARAM_STR);
     $statement->bindParam(":user_email",$_POST['user_email'],PDO::PARAM_STR);
     $statement->bindParam(":user_password",$hash,PDO::PARAM_STR);
-    
     $statement->execute();
     
     header( "Location: ../public/login.php?signup=notnull" );

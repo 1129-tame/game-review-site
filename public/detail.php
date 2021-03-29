@@ -38,6 +38,7 @@ $product_id = $stmt->fetch(PDO::FETCH_ASSOC);
 
  <div>
     <h3>口コミを投稿する</h3>
+    <?php require_once __DIR__ . '/../login/login_check.php' ?>
     <form action="../app/input_review.php" method="GET">
         <label> 名前：<br><input type="text" name="name"></label><br>
         <label for="content">感想・レビュー:</label>

@@ -23,6 +23,7 @@ foreach ($products_data as $product_data ) {
 <?php  } // End of foreach ?>
 
 	<h2>新規ゲーム追加</h2>
+<?php require_once __DIR__ . '/../login/login_check.php' ?>
 	<form action="../app/input_product.php" method="POST">
 	<label for="title">タイトル：</label>
 	<input type="text" id="title" name="product_name"><br>

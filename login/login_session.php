@@ -7,7 +7,6 @@ if (!empty($_SESSION['login'])) {
     echo "<a href=index.php>リストに戻る</a>";
     exit;
 }
-
 if ((empty($_POST['user_name'])) || (empty($_POST['user_password']))) {
     echo "ユーザ名、パスワード名を入力してください。";
     exit;

@@ -8,6 +8,14 @@
     </head>
     <header>
          <h2 class="game_logo"><a href="index.php">ゲーマーズ</a></h2>
+<?php
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+    if (!empty($_SESSION['login'])) {
+     echo "<span>　　ようこそ、～～～さん</span>";
+    }       
+?>
     <div class="f-container">
          <div>
             <ul class='nav'>
