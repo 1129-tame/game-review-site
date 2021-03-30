@@ -23,15 +23,13 @@ $product_id = $stmt->fetch(PDO::FETCH_ASSOC);
  </div>
 
  <?php
-  //　指定したレビューの抽出
-include __DIR__ . '/../app/select_review.php';
-
+   //　指定したレビューの抽出
+   include __DIR__ . '/../app/select_review.php';
 ?>
  <div>
     <h3>口コミを投稿する</h3>
     <?php require_once __DIR__ . '/../login/login_check.php' ?>
     <form action="../app/input_review.php" method="GET">
-        <label> 名前：<br><input type="text" name="name"></label><br>
         <label for="content">感想・レビュー:</label>
 <?php 
    if (empty($_GET['comment'])) {
@@ -40,8 +38,8 @@ include __DIR__ . '/../app/select_review.php';
    }
    $id = $_GET['id'];
    $user_id = $_SESSION['user_id'];
-   
 ?>
+
         <textarea name="review_comment" id="content" cols="30" rows="10"></textarea>
         <input type="hidden" name="product_id" value="<?= "$id";?>">
         <input type="hidden" name="user_id" value="<?= "$user_id" ?>">

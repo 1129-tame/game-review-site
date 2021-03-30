@@ -9,11 +9,12 @@
     <header>
          <h2 class="game_logo"><a href="index.php">ゲーマーズ</a></h2>
 <?php
+ require_once __DIR__ . "/../../app/functions.php";
     if (!isset($_SESSION)) {
         session_start();
     }
     if (!empty($_SESSION['login'])) {
-     echo "<span>　　ようこそ、" . $_SESSION['user_name'] . "さん</span>";
+     echo "<span>　　ようこそ、" . str2html($_SESSION['user_name']) . "さん</span>";
     }       
 ?>
     <div class="f-container">
