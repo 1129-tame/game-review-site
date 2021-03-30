@@ -1,4 +1,5 @@
 <?php include __DIR__ . "/inc/header.php"; ?>
+<?php require_once __DIR__ . "/../app/token.php";?>
 <?php 
 if (empty($_GET['pass'])) {
 } elseif ($_GET['pass'] = 'false') {
@@ -10,7 +11,7 @@ if (empty($_GET['pass'])) {
 	<div class="row">
 		 <div class="col-xs-6 col-xs-offset-3">
 		 	<h2>会員登録</h2>
-			<form action="../app/input_users.php" method="post">
+			<form action="../app/input_users.php" method="get">
 				<div class="form-group">
 					<label for="user_name">名前</label>
 					<input type="text" class="form-control" id="user_name" name="user_name">
@@ -23,6 +24,7 @@ if (empty($_GET['pass'])) {
 					<label for="user_pass_check">パスワードの確認</label>
 					<input type="password" class="form-control" id="user_pass_check" name="user_pass_check">
 				</div>
+				<input type="hidden" name="token" value="<?= "$token" ?>">
 				<button type="submit" class="btn btn-default">登録する</button>
 			</form>
 		 </div>

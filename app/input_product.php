@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . "/functions.php";
+require_once __DIR__ . "/token_check.php";
 //ゲーム情報をDBに追加
 //バリデーション
 if (empty($_POST['product_name']) || empty($_POST['product_hard']) || empty($_POST['product_description']) || empty($_POST['product_kind'])) {

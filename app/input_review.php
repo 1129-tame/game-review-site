@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . "/functions.php";
+require_once __DIR__ . "/token_check.php";
 // バリデーション
 if (empty($_GET['review_comment'])) {
     $product_id = $_GET['product_id'];

@@ -1,5 +1,6 @@
 <?php include __DIR__ . "/inc/header.php"; ?>
 <?php require_once __DIR__ . "/../app/functions.php";?>
+<?php require_once __DIR__ . "/../app/token.php";?>
 <?php
  //指定したidのプロダクトを抽出/商品関係
 $dbh = db_open();
@@ -8,7 +9,6 @@ $stmt = $dbh->prepare($sql2);
 $stmt->bindParam(":product_id",$_GET['id'],PDO::PARAM_INT);
 $stmt->execute();
 $product_id = $stmt->fetch(PDO::FETCH_ASSOC);
-
 ?>
 
  <h2>口コミ詳細</h2>
@@ -43,6 +43,7 @@ $product_id = $stmt->fetch(PDO::FETCH_ASSOC);
         <textarea name="review_comment" id="content" cols="30" rows="10"></textarea>
         <input type="hidden" name="product_id" value="<?= "$id";?>">
         <input type="hidden" name="user_id" value="<?= "$user_id" ?>">
+        <input type="hidden" name="token" value="<?= "$token" ?>">
         <input type="submit" value="投稿する">
         
     </form>

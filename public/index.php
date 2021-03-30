@@ -1,6 +1,8 @@
 <?php include __DIR__ . "/inc/header.php"; ?>
+<?php require_once __DIR__ . "/../app/token.php";?>
 <?php require_once __DIR__ . "/../app/functions.php"; ?>
 <?php require_once __DIR__ . "/../app/select_product.php"; ?>
+
 <?php
 	if (empty($_GET['product'])) {
 	} elseif ($_GET['product'] == 'notnull') {
@@ -38,6 +40,7 @@ foreach ($products_data as $product_data ) {
 	<input type="text" id="kind" name="product_kind"><br>
 	<label for="description">説明：</label>
 	<textarea name="product_description" id="description" cols="30" rows="10"></textarea>
+	<input type="hidden" name="token" value="<?= "$token" ?>">
 	<input type="submit" value="新規追加">
 	</form>
 
