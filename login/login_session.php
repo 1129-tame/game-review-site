@@ -1,11 +1,8 @@
 <?php
-session_start();
 require_once __DIR__ . '/../app/functions.php';
 
 if (!empty($_SESSION['login'])) {
-    echo "ログイン済みです<br>";
-    echo "<a href=index.php>リストに戻る</a>";
-    exit;
+    header("Location: ../public/login.php?signup=end");
 }
 if ((empty($_POST['user_name'])) || (empty($_POST['user_password']))) {
     echo "ユーザ名、パスワード名を入力してください。";
@@ -15,7 +12,7 @@ if ((empty($_POST['user_name'])) || (empty($_POST['user_password']))) {
 try {
     //ユーザ名の照合
     $dbh = db_open();
-    $sql = "SELECT user_password FROM users WHERE user_name = :user_name";
+    $sql = "SELECT user_id , user_password  FROM users WHERE user_name = :user_name";
     $stmt = $dbh->prepare($sql);
     $stmt->bindParam(":user_name", $_POST['user_name'], PDO::PARAM_STR);
     $stmt->execute();
@@ -26,9 +23,12 @@ try {
     }
     // ユーザ情報の照合
     if (password_verify($_POST['user_password'], $result['user_password'])) {
+        session_start();
         session_regenerate_id(true);
         $_SESSION['login'] = true;
-        header("Location: ../public/index.php");
+        $_SESSION['user_name'] = $_POST['user_name'];
+        $_SESSION['user_id'] = $result['user_id'];
+        header("Location: ../public/index.php?login=good");
     } else {
         echo 'ログインに失敗しました。（２）';
     }

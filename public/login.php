@@ -5,6 +5,8 @@ if (empty($_GET['signup'])) {
 	echo "<p>会員登録できました。ログインしてください。</p>";
 } elseif ($_GET['signup'] == 'out') {
 	echo "<p>ログアウトできました。</p>";
+} elseif ($_GET['signup' == 'end']) {
+	echo "<p>すでにログイン済みです。</p>";
 }
 ?>
 

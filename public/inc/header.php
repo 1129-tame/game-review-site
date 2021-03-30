@@ -13,7 +13,7 @@
         session_start();
     }
     if (!empty($_SESSION['login'])) {
-     echo "<span>　　ようこそ、～～～さん</span>";
+     echo "<span>　　ようこそ、" . $_SESSION['user_name'] . "さん</span>";
     }       
 ?>
     <div class="f-container">

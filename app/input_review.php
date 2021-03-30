@@ -14,11 +14,11 @@ try {
 date_default_timezone_set('Asia/Tokyo');
 $timestamp = time() ;
 $timestamp = date("Y-m-d H:i:s", $timestamp);
-$a = (int) 1;
-$statement->bindParam(":review_comment",$_GET["review_comment"],PDO::PARAM_STR);
+
+$statement->bindParam(":review_comment",$_GET['review_comment'],PDO::PARAM_STR);
 $statement->bindParam(":review_date",$timestamp,PDO::PARAM_STR);
-$statement->bindParam(":review_product_id",$_GET["product_id"],PDO::PARAM_INT);
-$statement->bindParam(":review_user_id",$a,PDO::PARAM_INT);
+$statement->bindParam(":review_product_id",$_GET['product_id'],PDO::PARAM_INT);
+$statement->bindParam(":review_user_id",$_GET['user_id'],PDO::PARAM_INT);
 
 $statement->execute();
 

@@ -16,10 +16,6 @@ if (empty($_GET['pass'])) {
 					<input type="text" class="form-control" id="user_name" name="user_name">
 				</div>
 				<div class="form-group">
-					<label for="user_email">Email</label>
-					<input type="email" class="form-control" id="user_email" name="user_email">
-				</div>
-				<div class="form-group">
 					<label for="user_password">パスワード</label>
 					<input type="password" class="form-control" id="user_password" name="user_password">
 				</div>

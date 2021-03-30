@@ -17,11 +17,10 @@ if ($user_password !== $user_pass_check) {
 try {
     $hash = password_hash($user_password, PASSWORD_DEFAULT);
     $dbh = db_open();
-    $sql = 'INSERT INTO users (user_id, user_name,user_email,user_password) VALUES (NULL, :user_name,:user_email, :user_password)';
+    $sql = 'INSERT INTO users (user_id, user_name,user_password) VALUES (NULL, :user_name, :user_password)';
     $statement = $dbh->prepare($sql);
     
     $statement->bindParam(":user_name",$_POST['user_name'],PDO::PARAM_STR);
-    $statement->bindParam(":user_email",$_POST['user_email'],PDO::PARAM_STR);
     $statement->bindParam(":user_password",$hash,PDO::PARAM_STR);
     $statement->execute();
     

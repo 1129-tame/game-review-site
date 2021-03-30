@@ -23,19 +23,10 @@ $product_id = $stmt->fetch(PDO::FETCH_ASSOC);
  </div>
 
  <?php
-    //　指定したレビューの抽出
- $sql = 'SELECT review_comment, review_date FROM reviews WHERE review_product_id = :review_product_id';
- $statement = $dbh->prepare($sql);
- $statement->bindParam(":review_product_id",$_GET['id'],PDO::PARAM_INT);
- $statement->execute();
- while ($product_review = $statement->fetch(PDO::FETCH_ASSOC)) { 
-    echo "<div>";
-    echo "<p>はるの感想・レビュー:" . str2html($product_review['review_date']) . "</p>";
-    echo "<p>" . str2html($product_review["review_comment"]) . "</p>";
-    echo "</div>";
- } //end of while   ?> 
+  //　指定したレビューの抽出
+include __DIR__ . '/../app/select_review.php';
 
-
+?>
  <div>
     <h3>口コミを投稿する</h3>
     <?php require_once __DIR__ . '/../login/login_check.php' ?>
@@ -48,10 +39,12 @@ $product_id = $stmt->fetch(PDO::FETCH_ASSOC);
       echo "<b>感想を入力してください</b>";
    }
    $id = $_GET['id'];
+   $user_id = $_SESSION['user_id'];
+   
 ?>
         <textarea name="review_comment" id="content" cols="30" rows="10"></textarea>
-        <input type="hidden" name="product_id" value="<?php echo "$id";?>">
-        <?php  ?>
+        <input type="hidden" name="product_id" value="<?= "$id";?>">
+        <input type="hidden" name="user_id" value="<?= "$user_id" ?>">
         <input type="submit" value="投稿する">
         
     </form>
