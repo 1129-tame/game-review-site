@@ -4,12 +4,12 @@
         <meta charset="UTF-8">
         <title>ゲーム口コミサイト＿ホーム</title>
         <meta name="viewport" contact="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
     </head>
     <header>
          <h2 class="game_logo"><a href="index.php">ゲーマーズ</a></h2>
 <?php
- require_once __DIR__ . "/../app/functions.php";
+ require_once __DIR__ . "/../../app/functions.php";
     if (!isset($_SESSION)) {
         session_start();
     }
