@@ -1,7 +1,7 @@
 <?php include __DIR__ . "/inc/header.php"; ?>
-<?php require_once __DIR__ . "/../app/token.php";?>
-<?php require_once __DIR__ . "/../app/functions.php"; ?>
-<?php require_once __DIR__ . "/../app/select_product.php"; ?>
+<?php require_once __DIR__ . "/app/token.php";?>
+<?php require_once __DIR__ . "/app/functions.php"; ?>
+<?php require_once __DIR__ . "/app/select_product.php"; ?>
 
 <?php
 	if (empty($_GET['product'])) {
