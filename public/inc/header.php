@@ -20,14 +20,14 @@
     <div class="f-container">
          <div>
             <ul class='nav'>
-                <li><a href="index.php">Switch</a></li>
-                <li><a href="index.php">PS4</a></li>
-                <li><a href="index.php">PS5</a></li> 
+                <li><a href="index2.php">Switch</a></li>
+                <li><a href="index2.php">PS4</a></li>
+                <li><a href="index2.php">PS5</a></li> 
             </ul>
         </div>
         <div class="f-item">
             <ul class='nav'>
-                <li><a href="index.php">ホーム</a></li>
+                <li><a href="index2.php">ホーム</a></li>
                 <li><a href="mypage.php">マイページ</a></li>
                 <li><a href="guest_login.php">ゲストログイン</a></li>
                 <li><a href="login.php">ログイン</a></li>
