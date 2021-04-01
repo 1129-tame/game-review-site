@@ -4,7 +4,7 @@ function str2html(string $string) :string {
 }
 //関数作成、XSS対策、特殊文字の無害化
 function db_open() :PDO {  //型宣言でPDO型を指定
-    $db = parse_url($_SERVER['CLEARDB_DATABASE_URL']);
+    $db = parse_url($_SERVER['CLEARDB_YELLOW_URL']);
     $dsn = "mysql:host={$db['DB_HOST']};dbname={$db['DB_DATABASE']};charset=utf8";
     $user = $db['DB_USERNAME'];
     $password = $db['DB_PASSWORD'];
