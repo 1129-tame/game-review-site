@@ -28,7 +28,7 @@ try {
         $_SESSION['login'] = true;
         $_SESSION['user_name'] = $_POST['user_name'];
         $_SESSION['user_id'] = $result['user_id'];
-        header("Location: ../public/index.php?login=good");
+        header("Location: ../public/index2.php?login=good");
     } else {
         echo 'ログインに失敗しました。（２）';
     }

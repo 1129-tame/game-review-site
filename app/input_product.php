@@ -4,7 +4,7 @@ require_once __DIR__ . "/token_check.php";
 //ゲーム情報をDBに追加
 //バリデーション
 if (empty($_POST['product_name']) || empty($_POST['product_hard']) || empty($_POST['product_description']) || empty($_POST['product_kind'])) {
-    header( "Location: ../public/index.php?product=null" );
+    header( "Location: ../public/index2.php?product=null" );
     exit;
 }
 
@@ -20,7 +20,7 @@ $statement->bindParam(":product_kind",$_POST['product_kind'],PDO::PARAM_STR);
 
 $statement->execute();
 
-header( "Location: ../public/index.php?product=notnull" );
+header( "Location: ../public/index2.php?product=notnull" );
 exit ;
 
    

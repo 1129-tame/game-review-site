@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css" href="../css/style.css">
     </head>
     <header>
-         <h2 class="game_logo"><a href="index.php">ゲーマーズ</a></h2>
+         <h2 class="game_logo"><a href="index2.php">ゲーマーズ</a></h2>
 <?php
  require_once __DIR__ . "/../../app/functions.php";
     if (!isset($_SESSION)) {
