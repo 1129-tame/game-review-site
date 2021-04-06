@@ -18,7 +18,7 @@ if ($user_password !== $user_pass_check) {
 }
 
 try {
-    $hash = password_hash($user_password, PASSWORD_DEFAULT);
+    $hash = password_hash($_GET['user_password'], PASSWORD_DEFAULT);
     $dbh = db_open();
     $sql = 'INSERT INTO users (user_id, user_name,user_password) VALUES (NULL, :user_name, :user_password)';
     $statement = $dbh->prepare($sql);
