@@ -10,12 +10,12 @@ if (empty($_GET['signup'])) {
 }
 ?>
 
-<div class="container">
-	<div class="row">
-		 <div class="col-xs-6 col-xs-offset-3">
-		 	<h2 class="loginname">ログイン</h2>
+<div>
+	<div>
+		 <div>
+		 	<h2>ログイン</h2>
 			<form action="../login/login_session.php" method="post">
-				<div class="form-group">
+				<div>
 					<label for="user_name">ユーザー名</label>
 					<input type="text" class="form-control" id="user_name" name="user_name">
 				</div>
