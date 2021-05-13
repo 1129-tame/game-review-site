@@ -2,11 +2,16 @@
 if (!isset($_SESSION)) {
     session_start();
 }
-if ((empty($_POST['token'])) && (empty($_GET['token']))) {
+if (isset($_GET['token'])) {
+    $gets = $_GET['token'];
+} elseif (isset($_POST['token'])) {
+    $gets = $_POST['token'];
+}
+if (empty($gets)) {
     echo "エラーが発生しました。";
     exit;
 }
-if ((!(hash_equals($_SESSION['token'], $_POST['token']))) && (!(hash_equals($_SESSION['token'], $_GET['token'])))) {
+if (!(hash_equals($_SESSION['token'], $gets))) {
     echo "エラーが発生しました。（２）";
     exit;
 }
