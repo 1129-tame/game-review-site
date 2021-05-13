@@ -2,6 +2,7 @@
 function str2html(string $string) :string {
     return htmlspecialchars($string , ENT_QUOTES , 'UTF-8');
 }
+
 //関数作成、XSS対策、特殊文字の無害化
 function db_open() :PDO {  //型宣言でPDO型を指定
     $db = parse_url($_SERVER['CLEARDB_YELLOW_URL']);
