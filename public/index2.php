@@ -13,6 +13,7 @@
 <?php
 $dbh = db_open();
 $products_data = fetch_products($dbh);
+echo "こんにちは！！！！";
 foreach ($products_data as $product_data ) {
 ?>
 
