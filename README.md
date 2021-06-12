@@ -1,5 +1,5 @@
-# portfolio
-ポートフォリオ・ゲームの口コミ評価サイト
+#
+ゲームの口コミ評価サイト
 
 https://portfoliotame.herokuapp.com/public/index2.php
 
